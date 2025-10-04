@@ -123,7 +123,7 @@ ManageOS.UserManager.deleteUser("newuser");
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/manageos.git
+git clone https://github.com/tizianoluziramos/manageos.git
 cd manageos
 npm install
 npm run build
