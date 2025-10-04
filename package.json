@@ -1,16 +1,33 @@
 {
-  "name": "virus",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.ts",
+  "name": "manageos",
+  "version": "1.0.1",
+  "description": "ManageOS",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "author": "Tiziano Tomas Luzi Ramos",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "@types/node": "^24.6.1"
+    "@types/node": "^24.6.1",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@types/deasync": "^0.1.5",
+    "@types/node-notifier": "^8.0.5",
+    "@types/node-windows": "^0.1.6",
+    "deasync": "^0.1.30",
+    "loudness": "^0.4.2",
+    "node-notifier": "^10.0.1",
+    "node-windows": "^1.0.0-beta.8",
+    "win-screen-resolution": "^3.0.2"
   }
 }

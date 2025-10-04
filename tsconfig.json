@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2022",
     "lib": ["es2020", "DOM"],
-    "module": "es2022",
+    "module": "commonjs",
     "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
@@ -11,6 +11,12 @@
     "paths": {
       "*": ["types/*"]
     },
-    "typeRoots": ["./types", "./node_modules/@types"]
-  }
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
+  },
+  "include": ["src"]
 }

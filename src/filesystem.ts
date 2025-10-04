@@ -9,6 +9,15 @@ interface FileInfo {
 }
 
 class Sync {
+  static createFile(filePath: string, content = ""): boolean | unknown {
+    try {
+      execSync(`echo ${content} > "${filePath}"`);
+      return true;
+    } catch (e) {
+      return e;
+    }
+  }
+
   static currentPath(): string {
     return __dirname;
   }
@@ -24,10 +33,8 @@ class Sync {
           size: "",
           isDirectory: false,
         }));
-      console.log(`\x1b[32m[SUCCESS]\x1b[0m Listado de directorio: ${dirPath}`);
       return files;
     } catch (error) {
-      console.error("Error listando directorio:", error);
       return [];
     }
   }
@@ -35,10 +42,8 @@ class Sync {
   static readFile(filePath: string): string {
     try {
       const content = execSync(`type "${filePath}"`, { encoding: "utf8" });
-      console.log(`\x1b[32m[SUCCESS]\x1b[0m Archivo leído: ${filePath}`);
       return content;
     } catch (error) {
-      console.error("Error leyendo archivo:", error);
       return "";
     }
   }
@@ -46,7 +51,6 @@ class Sync {
   static deleteFile(filePath: string, force = false): boolean | unknown {
     try {
       execSync(`del ${force ? "/F" : ""} "${filePath}"`);
-      console.log(`\x1b[32m[SUCCESS]\x1b[0m Archivo eliminado: ${filePath}`);
       return true;
     } catch (e) {
       return e;
@@ -56,7 +60,6 @@ class Sync {
   static createDirectory(dirPath: string): boolean | unknown {
     try {
       execSync(`mkdir "${dirPath}"`);
-      console.log(`\x1b[32m[SUCCESS]\x1b[0m Directorio creado: ${dirPath}`);
       return true;
     } catch (e) {
       return e;
@@ -66,7 +69,6 @@ class Sync {
   static deleteDirectory(dirPath: string, force = false): boolean | unknown {
     try {
       execSync(`rmdir ${force ? "/S /Q" : ""} "${dirPath}"`);
-      console.log(`\x1b[32m[SUCCESS]\x1b[0m Directorio eliminado: ${dirPath}`);
       return true;
     } catch (e) {
       return e;
@@ -78,6 +80,18 @@ class Async {
   static currentPath(): string {
     return __dirname;
   }
+  static createFile(
+    filePath: string,
+    content = ""
+  ): Promise<boolean | unknown> {
+    return new Promise((resolve) => {
+      exec(`echo ${content} > "${filePath}"`, (err) => {
+        if (err) resolve(err);
+        else resolve(true);
+      });
+    });
+  }
+
   static listDirectory(dirPath: string): Promise<FileInfo[]> {
     return new Promise((resolve, reject) => {
       exec(`dir "${dirPath}" /B`, (err, stdout) => {
@@ -91,9 +105,7 @@ class Async {
             size: "",
             isDirectory: false,
           }));
-        console.log(
-          `\x1b[32m[SUCCESS]\x1b[0m Listado de directorio: ${dirPath}`
-        );
+
         resolve(files);
       });
     });
@@ -103,7 +115,6 @@ class Async {
     return new Promise((resolve, reject) => {
       exec(`type "${filePath}"`, (err, stdout) => {
         if (err) return reject(err);
-        console.log(`\x1b[32m[SUCCESS]\x1b[0m Archivo leído: ${filePath}`);
         resolve(stdout);
       });
     });
@@ -117,9 +128,6 @@ class Async {
       exec(`del ${force ? "/F" : ""} "${filePath}"`, (err) => {
         if (err) resolve(err);
         else {
-          console.log(
-            `\x1b[32m[SUCCESS]\x1b[0m Archivo eliminado: ${filePath}`
-          );
           resolve(true);
         }
       });
@@ -131,7 +139,6 @@ class Async {
       exec(`mkdir "${dirPath}"`, (err) => {
         if (err) resolve(err);
         else {
-          console.log(`\x1b[32m[SUCCESS]\x1b[0m Directorio creado: ${dirPath}`);
           resolve(true);
         }
       });
@@ -146,9 +153,6 @@ class Async {
       exec(`rmdir ${force ? "/S /Q" : ""} "${dirPath}"`, (err) => {
         if (err) resolve(err);
         else {
-          console.log(
-            `\x1b[32m[SUCCESS]\x1b[0m Directorio eliminado: ${dirPath}`
-          );
           resolve(true);
         }
       });

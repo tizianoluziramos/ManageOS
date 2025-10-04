@@ -12,7 +12,6 @@ export default class Regedit {
     return new Promise((resolve, reject) => {
       regedit.createKey([hiveAndKey], (err) => {
         if (err) return reject(err);
-        console.log(`\x1b[32m[SUCCESS]\x1b[0m Clave creada en: ${hiveAndKey}`);
         resolve();
       });
     });
@@ -22,7 +21,6 @@ export default class Regedit {
     return new Promise((resolve, reject) => {
       regedit.deleteKey([hiveAndKey], (err) => {
         if (err) return reject(err);
-        console.log(`\x1b[32m[SUCCESS]\x1b[0m Clave eliminada: ${hiveAndKey}`);
         resolve();
       });
     });
@@ -43,9 +41,7 @@ export default class Regedit {
 
       regedit.putValue(mapping, (err) => {
         if (err) return reject(err);
-        console.log(
-          `\x1b[32m[SUCCESS]\x1b[0m Valor ${valueName} escrito en ${hiveAndKey}`
-        );
+
         resolve();
       });
     });
@@ -55,9 +51,7 @@ export default class Regedit {
     return new Promise((resolve, reject) => {
       regedit.deleteValue({ [hiveAndKey]: [valueName] }, (err) => {
         if (err) return reject(err);
-        console.log(
-          `\x1b[32m[SUCCESS]\x1b[0m Valor ${valueName} eliminado en ${hiveAndKey}`
-        );
+
         resolve();
       });
     });
@@ -67,7 +61,7 @@ export default class Regedit {
     return new Promise((resolve, reject) => {
       regedit.list(hiveAndKey, (err, result) => {
         if (err) return reject(err);
-        console.log(`\x1b[32m[SUCCESS]\x1b[0m Listado de claves completado`);
+
         resolve(result);
       });
     });

@@ -44,7 +44,7 @@ type CommandResult = {
   error?: string;
 };
 
-export default class UserManager {
+export default class Users {
   private static parseDate(output: string): string | null {
     if (!output) return null;
 
@@ -204,7 +204,6 @@ export default class UserManager {
 
     const res = this.execCommand("net user");
     if (!res.success || !res.output) {
-      console.error("Error listando usuarios:", res.error);
       return [];
     }
 
@@ -240,7 +239,6 @@ export default class UserManager {
 
     const res = this.execCommand("net localgroup");
     if (!res.success || !res.output) {
-      console.error("Error listando grupos:", res.error);
       return [];
     }
 
@@ -252,12 +250,11 @@ export default class UserManager {
     return parsed;
   }
 
-  static listGroupMembers(groupName: string): string[] {
+  static listGroupMembers(groupName: string): string[] | string | undefined {
     const escGroup = this.escapeArg(groupName);
     const res = this.execCommand(`net localgroup ${escGroup}`);
     if (!res.success || !res.output) {
-      console.error(`Error listando miembros de ${groupName}:`, res.error);
-      return [];
+      return res.error;
     }
 
     const parsed = this.parseSectionedOutput(res.output)
@@ -274,10 +271,6 @@ export default class UserManager {
     const escUser = this.escapeArg(username);
     const res = this.execCommand(`net user ${escUser}`);
     if (!res.success || !res.output) {
-      console.error(
-        `Error obteniendo info del usuario ${username}:`,
-        res.error
-      );
       return null;
     }
 
