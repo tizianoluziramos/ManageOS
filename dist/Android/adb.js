@@ -1055,18 +1055,15 @@ class Async {
                             const key = match[1].trim();
                             let value = match[2].trim();
                             const lower = value.toLowerCase();
-                            // Booleanos
                             if (["true", "yes", "1"].includes(lower)) {
                                 value = true;
                             }
                             else if (["false", "no", "0"].includes(lower)) {
                                 value = false;
                             }
-                            // Números enteros o flotantes
                             else if (!isNaN(Number(value)) && value !== "") {
                                 value = Number(value);
                             }
-                            // String vacío → null
                             else if (value === "") {
                                 value = null;
                             }

@@ -105,7 +105,7 @@ class Async {
     static async listDevices() {
         const fastboot = this.getFastbootPath();
         try {
-            const output = await this.exec("", "devices");
+            const output = await this.exec(fastboot, "devices");
             if (!output.output)
                 return [];
             return output.output
