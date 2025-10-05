@@ -1,0 +1,18 @@
+{
+  "entryPoints": ["src"],
+  "out": "docs",
+  "tsconfig": "tsconfig.json",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "plugin": [
+    "typedoc-material-theme",
+    "typedoc-plugin-extras",
+    "typedoc-umlclass"
+  ],
+  "themeColor": "#007BFF",
+  "customTitle": "ManageOS",
+  "customDescription": "Documentation for ManageOS",
+  "footerLastModified": true,
+  "footerTypedocVersion": true
+}

@@ -57,6 +57,6 @@ class Sync {
 }
 
 export default class Power {
-  public readonly Sync = Sync;
-  public readonly Async = Async;
+  public static readonly Sync = Sync;
+  public static readonly Async = Async;
 }
