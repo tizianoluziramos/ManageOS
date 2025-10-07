@@ -1,6 +1,6 @@
 {
   "name": "manageos",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "ManageOS",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
