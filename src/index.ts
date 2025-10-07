@@ -31,6 +31,7 @@ import AuditPolicy from "./auditpolicy";
 import Certificates from "./certificates";
 import Shell from "./shell";
 import PsExec from "./PsExec";
+import Mouse from "./Mouse";
 
 export default class ManageOS {
   static readonly Android = Android;
@@ -66,4 +67,5 @@ export default class ManageOS {
   static readonly Msconfig = Msconfig;
   static readonly Microphone = Microphone;
   static readonly PsExec = PsExec;
+  static readonly Mouse = Mouse;
 }

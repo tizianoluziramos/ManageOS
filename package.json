@@ -1,21 +1,22 @@
 {
   "name": "manageos",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "ManageOS",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "build-doc": "npx typedoc"
+    "build": "set PATH=C:\\MinGW\\bin;%PATH% && gcc -m32 src/Mouse/mouse.c -o src/Mouse/mouse.exe -mwindows && tsc && xcopy src\\*.exe dist /S /Y /I && xcopy src\\*.dll dist /S /Y /I && del src\\Mouse\\mouse.exe && npx typedoc --options typedoc.json",
+    "clean": "rmdir /S /Q dist && rmdir /S /Q docs"
   },
   "keywords": [],
   "author": "Tiziano Tomas Luzi Ramos",
   "license": "MIT",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "devDependencies": {
     "@types/node": "^24.6.1",
