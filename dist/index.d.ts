@@ -32,6 +32,9 @@ import Certificates from "./certificates";
 import Shell from "./shell";
 import PsExec from "./PsExec";
 import Mouse from "./Mouse";
+import Keyboard from "./Keyboard";
+import Startup from "./startup";
+import Server from "./Server";
 export default class ManageOS {
     static readonly Android: typeof Android;
     static readonly Antivirus: typeof Antivirus;
@@ -67,5 +70,8 @@ export default class ManageOS {
     static readonly Microphone: typeof Microphone;
     static readonly PsExec: typeof PsExec;
     static readonly Mouse: typeof Mouse;
+    static readonly Keyboard: typeof Keyboard;
+    static readonly Startup: typeof Startup;
+    static readonly Server: typeof Server;
 }
 //# sourceMappingURL=index.d.ts.map

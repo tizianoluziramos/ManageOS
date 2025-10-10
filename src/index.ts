@@ -32,6 +32,9 @@ import Certificates from "./certificates";
 import Shell from "./shell";
 import PsExec from "./PsExec";
 import Mouse from "./Mouse";
+import Keyboard from "./Keyboard";
+import Startup from "./startup";
+import Server from "./Server";
 
 export default class ManageOS {
   static readonly Android = Android;
@@ -68,4 +71,7 @@ export default class ManageOS {
   static readonly Microphone = Microphone;
   static readonly PsExec = PsExec;
   static readonly Mouse = Mouse;
+  static readonly Keyboard = Keyboard;
+  static readonly Startup = Startup;
+  static readonly Server = Server;
 }

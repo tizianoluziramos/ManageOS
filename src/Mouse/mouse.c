@@ -23,7 +23,6 @@ void output_json_array(const char *key, int a, int b)
     printf("{\"%s\":[%d,%d]}\n", key, a, b);
 }
 
-// Funciones básicas
 int move_mouse(int x, int y)
 {
     return SetCursorPos(x, y);
@@ -85,7 +84,7 @@ int get_position()
 int track_position()
 {
     POINT p;
-    printf("["); // JSON array start
+    printf("[");
     while (1)
     {
         if (GetCursorPos(&p))

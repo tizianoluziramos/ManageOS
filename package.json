@@ -1,14 +1,14 @@
 {
   "name": "manageos",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "ManageOS",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "set PATH=C:\\MinGW\\bin;%PATH% && gcc -m32 src/Mouse/mouse.c -o src/Mouse/mouse.exe -mwindows && tsc && xcopy src\\*.exe dist /S /Y /I && xcopy src\\*.dll dist /S /Y /I && del src\\Mouse\\mouse.exe && npx typedoc --options typedoc.json",
-    "clean": "rmdir /S /Q dist && rmdir /S /Q docs"
+    "build": "BUILD_TOOLS\\build.bat",
+    "clean": "BUILD_TOOLS\\clean.bat"
   },
   "keywords": [],
   "author": "Tiziano Tomas Luzi Ramos",
@@ -33,12 +33,15 @@
     "@types/screenshot-desktop": "^1.15.0",
     "@types/systeminformation": "^3.23.1",
     "deasync": "^0.1.30",
+    "ftp-srv": "^4.6.3",
     "loudness": "^0.4.2",
+    "node-hid": "^3.2.0",
     "node-mic": "^1.0.1",
     "node-notifier": "^10.0.1",
     "node-webcam": "^0.8.2",
     "node-windows": "^1.0.0-beta.8",
     "screenshot-desktop": "^1.15.2",
+    "ssh2-sftp-server": "^1.1.2",
     "systeminformation": "^5.27.10",
     "typedoc-material-theme": "^1.4.0",
     "win-screen-resolution": "^3.0.2"

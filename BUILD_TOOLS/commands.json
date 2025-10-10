@@ -1,0 +1,54 @@
+{
+  "commands": [
+    {
+      "pre": "Compilando Mouse Controller...",
+      "command": "gcc -m32 src\\Mouse\\mouse.c -o src\\Mouse\\mouse.exe -mwindows",
+      "after": "Mouse Controller compilado."
+    },
+    {
+      "pre": "Compilando Keyboard Controller...",
+      "command": "gcc -m32 src\\Keyboard\\keyboard.c -o src\\Keyboard\\keyboard.exe -mwindows",
+      "after": "Keyboard Controller compilado."
+    },
+    {
+      "pre": "Compilando servidor HTTP...",
+      "command": "gcc src\\Server\\HTTP\\http.c -o src\\Server\\HTTP\\http.exe -lws2_32",
+      "after": "Servidor HTTP compilado."
+    },
+    {
+      "pre": "Compilando TypeScript...",
+      "command": "tsc",
+      "after": "TypeScript compilado."
+    },
+    {
+      "pre": "Copiando ejecutables...",
+      "command": "xcopy src\\*.exe dist /S /Y /I",
+      "after": "Ejecutables copiados."
+    },
+    {
+      "pre": "Copiando librerías...",
+      "command": "xcopy src\\*.dll dist /S /Y /I",
+      "after": "Librerías copiadas."
+    },
+    {
+      "pre": "Eliminando mouse.exe temporal...",
+      "command": "del /Q src\\Mouse\\mouse.exe",
+      "after": "mouse.exe eliminado."
+    },
+    {
+      "pre": "Eliminando keyboard.exe temporal...",
+      "command": "del /Q src\\Keyboard\\keyboard.exe",
+      "after": "keyboard.exe eliminado."
+    },
+    {
+      "pre": "Eliminando http.exe temporal...",
+      "command": "del /Q src\\Server\\HTTP\\http.exe",
+      "after": "http.exe eliminado."
+    },
+    {
+      "pre": "Generando documentación con Typedoc...",
+      "command": "npx typedoc --options typedoc.json --json docs/openapi.json",
+      "after": "Documentación generada."
+    }
+  ]
+}
