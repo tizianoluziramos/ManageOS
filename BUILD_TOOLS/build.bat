@@ -2,29 +2,29 @@
 setlocal enabledelayedexpansion
 
 REM -----------------------
-REM Build funcional desde cmd.exe con nueva sintaxis
+REM Functional build from cmd.exe using new syntax
 REM -----------------------
 
-REM Configurar PATH
+REM Configure PATH
 set "PATH=C:\MinGW\bin;%PATH%"
 
-REM Guardar ruta del build.bat
+REM Save build.bat directory path
 set "BUILD_DIR=%~dp0"
 cd /d "%BUILD_DIR%\.."
 
-REM Ruta absoluta al commands.json
+REM Absolute path to commands.json
 set "JSON_PATH=%BUILD_DIR%commands.json"
 
-REM Archivo temporal para comandos
+REM Temporary file for commands
 set "TEMP_FILE=%TEMP%\build_commands.txt"
 if exist "%TEMP_FILE%" del "%TEMP_FILE%"
 
-REM Crear script PowerShell en una sola línea
+REM Create PowerShell script on a single line
 powershell -NoProfile -Command ^
   "$commands = (Get-Content '%JSON_PATH%' | ConvertFrom-Json).commands; $commands | ForEach-Object { Write-Output ($_.pre + '§' + $_.command + '§' + $_.after) }" ^
   > "%TEMP_FILE%"
 
-REM Construir cadena de comandos con && ^
+REM Build command chain with && ^
 set "CMD_CHAIN="
 
 for /f "usebackq tokens=1,2,3 delims=§" %%A in ("%TEMP_FILE%") do (
@@ -35,15 +35,15 @@ for /f "usebackq tokens=1,2,3 delims=§" %%A in ("%TEMP_FILE%") do (
     )
 )
 
-REM Mostrar comando final
-echo Comando a ejecutar:
+REM Show final command
+echo Command to execute:
 echo !CMD_CHAIN!
 echo.
 
-REM Ejecutar todo
+REM Execute everything
 cmd /v:on /c "!CMD_CHAIN!"
 
-REM Revisar código de salida
+REM Check exit code
 if errorlevel 1 (
     echo.
     echo BUILD FAILED (exit code %ERRORLEVEL%)
@@ -51,5 +51,5 @@ if errorlevel 1 (
 )
 
 echo.
-echo BUILD OK
+echo BUILD SUCCESSFUL
 pause

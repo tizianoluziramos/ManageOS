@@ -1,119 +1,133 @@
 # 🧠 ManageOS
 
-**ManageOS** es un módulo para **Node.js**, **TypeScript** y **JavaScript** que permite **gestionar, auditar y automatizar tareas del sistema operativo Windows** (y otros entornos como Android) mediante una API sencilla y potente.
+**ManageOS** is a module for **Node.js**, **TypeScript**, and
+**JavaScript** that allows you to **manage, audit, and automate
+operating system tasks** on Windows (and other environments like
+Android) through a simple and powerful API.
+
+📘 **Official Documentation:** [https://tizianoluziramos.github.io/ManageOS](https://tizianoluziramos.github.io/ManageOS)
 
 ---
 
-## 🚀 Características principales
+## 🚀 Main Features
 
-- 🪟 Gestión avanzada del sistema operativo Windows.
-- 🔒 Control de **BitLocker**, **Antivirus** y **Políticas de auditoría**.
-- 🧾 Administración de **registros de eventos** y **certificados**.
-- 🔉 Control de **audio**, **cámara**, **portapapeles** y más.
-- 🧠 API unificada para funciones **sincrónicas (Sync)** y **asíncronas (Async)**.
-- 🤖 Soporte extendido para **Android** (ADB y Fastboot).
-- 🔐 Herramientas integradas de **encriptación y hash**.
-- 🪶 Completamente escrito en **TypeScript** con tipado fuerte.
+- 🪟 Advanced Windows OS management.
+- 🔒 Control of **BitLocker**, **Antivirus**, and **Audit Policies**.
+- 🧾 Administration of **event logs** and **certificates**.
+- 🔉 Control of **audio**, **camera**, **clipboard**, and more.
+- 🧠 Unified API for both **Synchronous (Sync)** and **Asynchronous
+  (Async)** functions.
+- 🤖 Extended support for **Android** (ADB and Fastboot).
+- 🔐 Built-in **encryption and hashing** tools.
+- 🪶 Fully written in **TypeScript** with strong typing.
 
 ---
 
-## 📦 Instalación
+## 📦 Installation
 
 ```bash
 npm install manageos
-# o
+# or
 yarn add manageos
 ```
 
 ---
 
-## 🧰 Ejemplo de uso básico
+## 🧰 Basic Usage Example
 
-### Sincrónico
+### Synchronous
+
 ```ts
 import { BitLocker } from "manageos";
 
 BitLocker.Sync.lockDrive("C:");
-console.log("Unidad C bloqueada con BitLocker.");
+console.log("Drive C locked with BitLocker.");
 ```
 
-### Asíncrono
+### Asynchronous
+
 ```ts
 import { AuditPolicy } from "manageos";
 
 await AuditPolicy.Async.enable("Logon/Logoff");
-console.log("Política de auditoría activada.");
+console.log("Audit policy enabled.");
 ```
 
 ---
 
-## 📚 Módulos disponibles
+## 📚 Available Modules
 
-| Módulo | Descripción |
-|--------|--------------|
-| `Antivirus` | Controla y verifica el estado del antivirus de Windows. |
-| `Audio` | Administra el volumen, dispositivos y controladores de audio. |
-| `AuditPolicy` | Gestiona políticas de auditoría del sistema. |
-| `BitLocker` | Controla el cifrado de unidades mediante BitLocker. |
-| `Camera` | Accede a la cámara del sistema y gestiona su disponibilidad. |
-| `Certificates` | Gestiona certificados del sistema. |
-| `Clipboard` | Lee y escribe en el portapapeles del sistema. |
-| `Encryption` | Permite encriptar, desencriptar, generar y guardar claves. |
-| `EventLogs` | Lee y exporta registros del visor de eventos. |
-| `Android` | Ejecuta comandos ADB y Fastboot para dispositivos Android. |
+Module Description
 
 ---
 
-## 🔐 Ejemplo de encriptación
+`Antivirus` Controls and verifies Windows antivirus status.
+`Audio` Manages volume, devices, and audio drivers.
+`AuditPolicy` Manages system audit policies.
+`BitLocker` Controls drive encryption via BitLocker.
+`Camera` Accesses and manages system camera availability.
+`Certificates` Manages system certificates.
+`Clipboard` Reads and writes from/to the system clipboard.
+`Encryption` Encrypts, decrypts, generates, and stores keys.
+`EventLogs` Reads and exports Event Viewer logs.
+`Android` Executes ADB and Fastboot commands for Android devices.
+
+---
+
+## 🔐 Encryption Example
 
 ```ts
 import { Encryption } from "manageos";
 
-// Inicializa una clave
-Encryption.init("mi_clave_secreta");
+// Initialize a key
+Encryption.init("my_secret_key");
 
-// Cifra texto
-const { encryptedData, iv } = Encryption.encrypt("Hola mundo");
+// Encrypt text
+const { encryptedData, iv } = Encryption.encrypt("Hello world");
 
-// Descifra texto
-const texto = Encryption.decrypt(encryptedData, iv);
-console.log(texto); // "Hola mundo"
+// Decrypt text
+const text = Encryption.decrypt(encryptedData, iv);
+console.log(text); // "Hello world"
 ```
 
 ---
 
-## 🧩 API consistente
+## 🧩 Consistent API
 
-Todos los módulos siguen una estructura similar:
+All modules follow the same structure:
+
 ```ts
-<Modulo>.Sync.<función>()
-<Modulo>.Async.<función>()
+<Module>.Sync.<function>()
+<Module>.Async.<function>()
 ```
 
-Esto permite integrar **ManageOS** fácilmente en cualquier flujo sin preocuparse por compatibilidades entre promesas o ejecuciones bloqueantes.
+This makes **ManageOS** easy to integrate into any workflow without
+worrying about promise or blocking execution compatibility.
 
 ---
 
-## 🛠️ Requisitos
+## 🛠️ Requirements
 
-- Windows 10 / 11 o superior
-- Node.js >= 18
-- Permisos administrativos para algunas funciones
-
----
-
-## 📖 Documentación
-
-Consulta la documentación completa en el repositorio oficial:
-
-👉 [GitHub - tizianoluziramos/ManageOS](https://github.com/tizianoluziramos/ManageOS)
+- Windows 10 / 11 or higher
+- Node.js \>= 18
+- Administrative privileges for certain functions
 
 ---
 
-## 🤝 Contribuir
+## 📖 Documentation
 
-¡Las contribuciones son bienvenidas!  
-Haz un *fork* del proyecto, crea una rama con tus cambios y envía un *pull request*.
+Check out the full documentation on the official repository:
+
+👉 [GitHub -
+tizianoluziramos/ManageOS](https://github.com/tizianoluziramos/ManageOS)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!\
+Fork the project, create a branch with your changes, and submit a pull
+request.
 
 ```bash
 git clone https://github.com/tizianoluziramos/ManageOS.git
@@ -124,10 +138,10 @@ npm run build
 
 ---
 
-## 🧾 Licencia
+## 🧾 License
 
-Este proyecto está licenciado bajo la **MIT License**.
+This project is licensed under the **MIT License**.
 
 ---
 
-### ✨ Desarrollado por [Tiziano Luzi Ramos](https://github.com/tizianoluziramos)
+### ✨ Developed by [Tiziano Luzi Ramos](https://github.com/tizianoluziramos)

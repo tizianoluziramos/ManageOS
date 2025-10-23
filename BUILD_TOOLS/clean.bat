@@ -3,14 +3,12 @@ REM =============================
 REM Clean Script
 REM =============================
 
-cd ..
-
-echo Eliminando carpeta dist...
+echo Deleting dist folder...
 if exist dist rmdir /S /Q dist
 
-echo Eliminando carpeta docs...
+echo Deleting docs folder...
 if exist docs rmdir /S /Q docs
 
 echo.
-echo LIMPIEZA COMPLETADA
+echo CLEANUP COMPLETED
 pause
