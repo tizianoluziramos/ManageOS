@@ -1,7 +1,3 @@
-import Windows from "./windows";
-import Linux from "./linux";
+import Windows from "./Windows";
 
-export default class ManageOS {
-  static readonly Windows = Windows;
-  static readonly Linux = Linux;
-}
+export { Windows };

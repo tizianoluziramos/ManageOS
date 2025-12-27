@@ -11,7 +11,7 @@
     "paths": {
       "*": ["types/*"]
     },
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "typeRoots": ["./types", "./dist", "./node_modules/@types"],
     "outDir": "./dist",
     "types": ["node"],
     "rootDir": "./src",

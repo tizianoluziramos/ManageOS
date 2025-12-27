@@ -6,7 +6,7 @@ REM Functional build from cmd.exe using new syntax
 REM -----------------------
 
 REM Configure PATH
-set "PATH=C:\MinGW\bin;%PATH%"
+set "PATH=D:\MinGW\bin;%PATH%"
 
 REM Save build.bat directory path
 set "BUILD_DIR=%~dp0"
@@ -49,7 +49,3 @@ if errorlevel 1 (
     echo BUILD FAILED (exit code %ERRORLEVEL%)
     exit /b %ERRORLEVEL%
 )
-
-echo.
-echo BUILD SUCCESSFUL
-pause

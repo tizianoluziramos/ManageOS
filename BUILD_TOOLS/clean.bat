@@ -11,4 +11,3 @@ if exist docs rmdir /S /Q docs
 
 echo.
 echo CLEANUP COMPLETED
-pause

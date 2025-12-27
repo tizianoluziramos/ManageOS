@@ -2,17 +2,17 @@
   "commands": [
     {
       "pre": "Compiling Mouse Controller...",
-      "command": "gcc -m32 src\\Mouse\\mouse.c -o src\\Mouse\\mouse.exe -mwindows",
+      "command": "gcc -m32 src\\Windows\\Mouse\\mouse.c -o src\\Windows\\Mouse\\mouse.exe",
       "after": "Mouse Controller compiled."
     },
     {
       "pre": "Compiling Keyboard Controller...",
-      "command": "gcc -m32 src\\Keyboard\\keyboard.c -o src\\Keyboard\\keyboard.exe -mwindows",
+      "command": "gcc -m32 src\\Windows\\Keyboard\\keyboard.c -o src\\Windows\\Keyboard\\keyboard.exe",
       "after": "Keyboard Controller compiled."
     },
     {
       "pre": "Compiling HTTP Server...",
-      "command": "gcc src\\Server\\HTTP\\http.c -o src\\Server\\HTTP\\http.exe -lws2_32",
+      "command": "gcc -m32 src\\Windows\\Server\\HTTP\\http.c -o src\\Windows\\Server\\HTTP\\http.exe -lws2_32",
       "after": "HTTP Server compiled."
     },
     {
@@ -32,23 +32,18 @@
     },
     {
       "pre": "Deleting temporary mouse.exe...",
-      "command": "del /Q src\\Mouse\\mouse.exe",
+      "command": "del /Q src\\Windows\\Mouse\\mouse.exe",
       "after": "mouse.exe deleted."
     },
     {
       "pre": "Deleting temporary keyboard.exe...",
-      "command": "del /Q src\\Keyboard\\keyboard.exe",
+      "command": "del /Q src\\Windows\\Keyboard\\keyboard.exe",
       "after": "keyboard.exe deleted."
     },
     {
       "pre": "Deleting temporary http.exe...",
-      "command": "del /Q src\\Server\\HTTP\\http.exe",
+      "command": "del /Q src\\Windows\\Server\\HTTP\\http.exe",
       "after": "http.exe deleted."
-    },
-    {
-      "pre": "Generating documentation with Typedoc...",
-      "command": "npx typedoc --options typedoc.json --json docs/openapi.json",
-      "after": "Documentation generated."
     }
   ]
 }

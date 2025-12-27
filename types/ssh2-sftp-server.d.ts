@@ -7,14 +7,6 @@ declare module "ssh2-sftp-server" {
     password: string;
   }
 
-  export interface SFTPServerOptions {
-    url: string;
-    anonymous?: boolean;
-    pasv_url?: string;
-    hostKeys?: string[];
-    [key: string]: any;
-  }
-
   export interface SFTPFileAttrs extends Stats {
     mode: number;
     uid: number;
@@ -22,6 +14,14 @@ declare module "ssh2-sftp-server" {
     size: number;
     atime: number;
     mtime: number;
+  }
+
+  export interface SFTPServerOptions {
+    url: string;
+    anonymous?: boolean;
+    pasv_url?: string;
+    hostKeys?: string[];
+    [key: string]: any;
   }
 
   export interface SFTPFileEntry {
