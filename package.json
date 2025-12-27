@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "publish": "npm run build && npm publish --access=public --ignore-scripts && npm run clean",
+    "gitpublish": "node scripts/gitpublish.js",
+    "publish": "npm run build && npm publish --access=public --ignore-scripts && npm run gitpublish &&  npm run clean",
     "patch": "node BUILD_TOOLS\\patch.js",
     "build": "BUILD_TOOLS\\build.bat && npm run patch",
     "clean": "BUILD_TOOLS\\clean.bat",
